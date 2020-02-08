@@ -504,3 +504,230 @@ console.log(`Today is ${day}`);
 //////////////////////////////////////////////////////////
 
 // Function declarations and expressions
+/*
+function greet(firstName = "John", lastName = "Doe") {
+  return "Hello " + firstName + " " + lastName;
+}
+
+console.log(greet("Steve"));
+*/
+
+// Function expressions
+/*
+const square = function(x = 3) {
+  return x * x;
+};
+
+console.log(square(6));
+console.log(square());
+*/
+
+// Immidiatley invokable function expressions IIFEs
+/*
+(function() {
+  console.log("IIFE ran...");
+})();
+
+(function(name) {
+  console.log(`Hello ${name}`);
+})("John");
+*/
+
+// Property Methods
+/*
+const todo = {
+  add: function() {
+    console.log("Add todo...");
+  },
+  edit: function(id) {
+    console.log(`Edit todo ${id}`);
+  }
+};
+// example adding with arrow
+todo.delete = () => console.log("delete todo...");
+
+todo.add();
+todo.edit("today");
+todo.delete();
+*/
+
+///////////////////////////////////////////////////////////////
+
+// General loops
+
+// For Loop
+/*
+for (let i = 0; i < 10; i++) {
+  if (i === 2) {
+    console.log("2 is my favorite");
+    continue;
+  } else if (i === 7) {
+    break;
+  }
+  console.log(`Number ${i}`);
+}
+*/
+
+// While Loop
+/*
+let i = 0;
+
+while (i < 10) {
+  console.log(`Number ${i}`);
+  i++;
+}
+*/
+
+// Do While
+/*
+let i = 0;
+do {
+  console.log(`Number ${i}`);
+  i++;
+} while (i < 10);
+
+const cars = ["Ford", "Chevy", "Honda", "Toyota"];
+
+for (let i = 0; i < cars.length; i++) {
+  console.log(cars[i]);
+}
+
+// forEach
+
+cars.forEach(function(car, index, array) {
+  console.log(`${index}: ${car}`);
+  console.log(array);
+});
+
+cars.forEach((car, index) => console.log(`${index}: ${car}`));
+
+// Map
+
+const users = [
+  { id: 1, name: "Nate" },
+  { id: 2, name: "Mary" },
+  { id: 3, name: "Pete" }
+];
+
+const ids = users.map(function(user) {
+  return user.id;
+});
+
+const idsB = users.map(user => user.id);
+
+console.log(ids);
+console.log(idsB);
+
+const user = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 40
+};
+
+// For in
+for (let x in user) {
+  console.log(x);
+  console.log(`${x}: ${user[x]}`);
+}
+*/
+
+//////////////////////////////////////////////////////////
+
+// The window object
+// Window methods / objects / properties
+
+//window.console.log(123);
+
+// Alert
+// alert('Hello World');
+
+// Promt
+//const input = prompt();
+//alert(input);
+
+// Confirm
+/*
+if (confirm("Are you sure")) {
+  console.log("Yes");
+} else {
+  console.log("No");
+}
+*/
+
+// window
+/*
+let val;
+
+// outer height and width
+val = window.outerHeight;
+val = window.outerWidth;
+
+// Scroll points
+val = window.scrollY;
+val = window.scrollX;
+
+// Location object
+val = window.location;
+val = window.location.hostname;
+val = window.location.port;
+val = window.location.href;
+val = window.location.search;
+
+// Redirect
+//window.location.href = "http://google.com";
+
+// History object
+val = window.history.length;
+
+// Navigator object
+val = window.navigator;
+val = window.navigator.appName;
+val = window.navigator.appVersion;
+val = window.navigator.userAgent;
+val = window.navigator.platform;
+val = window.navigator.vendor;
+val = window.navigator.language;
+
+console.log(val);
+*/
+
+//////////////////////////////////////////////////////////
+
+// Scope
+/*
+// Global scope
+var a = 1;
+let b = 2;
+const c = 3;
+
+function test() {
+  var a = 4;
+  let b = 5;
+  const c = 6;
+  console.log("Function Scope: ", a, b, c);
+}
+test();
+console.log("Global Scope: ", a, b, c);
+
+// Block scope
+if (true) {
+  var a = 4;
+  let b = 5;
+  const c = 6;
+  console.log("Block Scope: ", a, b, c);
+}
+
+console.log("Global Scope: ", a, b, c);
+
+for (let a = 0; a < 10; a++) {
+  console.log(`loop: ${a}`);
+}
+
+console.log("Global Scope: ", a, b, c);
+
+for (var a = 0; a < 10; a++) {
+  console.log(`loop: ${a}`);
+}
+
+console.log("Global Scope: ", a, b, c);
+*/
