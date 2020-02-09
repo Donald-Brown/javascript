@@ -2,11 +2,7 @@ function whatIsInAName(collection, source) {
   // What's in a name?
   var arr = collection.filter(item => {
     for(let key in source){
-    if(source[key] != item[key]){
-        return false;
-      }
-    }
-    return true;
+    return source[key] == item[key];
   });
   
   
