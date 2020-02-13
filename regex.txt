@@ -1,0 +1,15 @@
+.     any one character
+\d    any digit from 0 to 9
+\w    any word character (a-z,A-Z,0-9)
+\W    any non-word character
+\s    any whitespace character
+      (tab, new line, form feed, end of line, carriage return)
+\S    any non whitespace character
+^     beginning of line
+$     end of line
+\b    word boundary
+\B    a non word boundary
+?         appearing once or not at all
+*         appearing zero or more times
++         appearing one or more times
+{min,max} appearing within the specified range
