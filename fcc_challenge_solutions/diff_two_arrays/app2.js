@@ -24,35 +24,35 @@ diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) should return an array.
  */
 
 function diffArray(arr1, arr2) {
-  const newArr = [];
-
-  // Loop through arr1
-  for(let i=0; i<arr1.length; i++){
-    if(!newArr.includes(arr1[i])){
-      newArr.push(arr1[i]);
+    const newArr = [];
+  
+    // Loop through arr1
+    for(const curr of arr1){
+      if(!newArr.includes(curr)){
+        newArr.push(curr);
+      }
     }
-  }
-
-  // Loop through arr2
-  for(let i=0; i<arr2.length; i++){
-    if(!newArr.includes(arr2[i])){
-      newArr.push(arr2[i]);
+  
+    // Loop through arr2
+    for(const curr of arr2){
+      if(!newArr.includes(curr)){
+        newArr.push(curr);
+      }
     }
-  }
-
-  // Loop through newArr
-  const diffArr = [];
-  for(let i=0; i<newArr.length; i++){
-    const current = newArr[i];
-    if(arr1.includes(current) && !arr2.includes(current)){
-      diffArr.push(current);
-    }else if(arr2.includes(current) && !arr1.includes(current)){
-      diffArr.push(current);
+  
+    // Loop through newArr
+    const diffArr = [];
+    for(const current of newArr){
+      if(arr1.includes(current) && !arr2.includes(current)){
+        diffArr.push(current);
+      }else if(arr2.includes(current) && !arr1.includes(current)){
+        diffArr.push(current);
+      }
+  
     }
-
+  
+    return diffArr;
   }
-
-  return diffArr;
-}
-
-console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+  
+  console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+  
