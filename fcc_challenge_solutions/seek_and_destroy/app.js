@@ -16,7 +16,8 @@ destroyer(["possum", "trollo", 12, "safari", "hotdog", 92, 65, "grandma", "bugat
 
 function destroyer(arr) {
     // Remove all the values
-    return arr;
+
+    return arr.filter(e => ![...arguments].slice(1).includes(e));
 }
 
-destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
