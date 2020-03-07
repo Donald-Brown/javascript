@@ -29,10 +29,22 @@ re = /hel{2,}o/; // must occur at least {n} times
 // Parenthasis are used for grouping
 re = /([0-9]x){3}/;
 
+// Shorthand character classes
+re = /\w/; // word character - alphanumeric or _
+re = /\w+/; // + = 1 or more times
+re = /\W/; // non-word character
+re = /\d/; // digit
+re = /\D/; // non-digit
+re = /\s/; // white space
+re = /\S/; // non-white space
+re = /Hell\b/i; // Word boundry
+
+// assertions
+re = /x(?=y)/; // matches x only if it is followed by y 
+re = /x(?!y)/; // matches x only if it is NOT followed by y 
+
 // string to match 
-const str = '3x3x3x';
-
-
+const str = 'yx';
 
 //log results
 const result = re.exec(str);
