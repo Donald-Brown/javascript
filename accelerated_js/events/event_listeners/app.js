@@ -9,7 +9,19 @@ const output8 = document.querySelector(".output8");
 const output9 = document.querySelector(".output9");
 const output10 = document.querySelector(".output10");
 
-const FN1 = (function(name) {
-    return `Hello ${name},<br> Nothing to see here<br>Open your console!`;
-})("Mary");
-output1.innerHTML = FN1;
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', listener1);
+btn.addEventListener('click', listener2);
+
+setTimeout(function(){
+    btn.removeEventListener('click', listener1);
+}, 2000)
+
+function listener1(){
+    console.log('I\'m listener1');
+}
+
+function listener2(){
+    console.log('I\'m listener2');
+}
