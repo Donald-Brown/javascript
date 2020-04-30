@@ -1,112 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-            crossorigin="anonymous"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-            rel="stylesheet"
-        />
-        <style>
-            body {
-                font-family: "Roboto", sans-serif;
-            }
-        </style>
-        <title></title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="col mx-auto">
-                <h2 class="my-4">
-                    JavaScript Algorithms and Data Structures Projects:
-                    <span class="text-success"> Cash Register</span>
-                </h2>
-                <p>
-                    Design a cash register drawer function checkCashRegister()
-                    that accepts purchase price as the first argument (price),
-                    payment as the second argument (cash), and cash-in-drawer
-                    (cid) as the third argument.
-                </p>
-                <p>
-                    cid is a 2D array listing available currency.
-                </p>
-                <p>
-                    The checkCashRegister() function should always return an
-                    object with a status key and a change key.
-                </p>
-                <p>
-                    Return {status: "INSUFFICIENT_FUNDS", change: []} if
-                    cash-in-drawer is less than the change due, or if you cannot
-                    return the exact change.
-                </p>
-                <p>
-                    Return {status: "CLOSED", change: [...]} with cash-in-drawer
-                    as the value for the key change if it is equal to the change
-                    due.
-                </p>
-                <p>
-                    Otherwise, return {status: "OPEN", change: [...]}, with the
-                    change due in coins and bills, sorted in highest to lowest
-                    order, as the value of the change key.
-                </p>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Currency Unit</th>
-                            <th scope="col">Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Penny</td>
-                            <td>$0.01 (PENNY)</td>
-                        </tr>
-                        <tr>
-                            <td>Nickel</td>
-                            <td>$0.05 (NICKEL)</td>
-                        </tr>
-                        <tr>
-                            <td>Dime</td>
-                            <td>$0.1 (DIME)</td>
-                        </tr>
-                        <tr>
-                            <td>Quarter</td>
-                            <td>$0.25 (QUARTER)</td>
-                        </tr>
-                        <tr>
-                            <td>Dollar</td>
-                            <td>$1 (DOLLAR)</td>
-                        </tr>
-                        <tr>
-                            <td>Five Dollars</td>
-                            <td>$5 (FIVE)</td>
-                        </tr>
-                        <tr>
-                            <td>Ten Dollars</td>
-                            <td>$10 (TEN)</td>
-                        </tr>
-                        <tr>
-                            <td>Twenty Dollars</td>
-                            <td>$20 (TWENTY)</td>
-                        </tr>
-                        <tr>
-                            <td>One-hundred Dollars</td>
-                            <td>$100 (ONE HUNDRED)</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>See below for an example of a cash-in-drawer array:</p>
-                <pre>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col mx-auto">
+        <h2 class="my-4">
+          JavaScript Algorithms and Data Structures Projects:
+          <span class="text-success"> Cash Register</span>
+        </h2>
+        <p>
+          Design a cash register drawer function checkCashRegister() that
+          accepts purchase price as the first argument (price), payment as the
+          second argument (cash), and cash-in-drawer (cid) as the third
+          argument.
+        </p>
+        <p>
+          cid is a 2D array listing available currency.
+        </p>
+        <p>
+          The checkCashRegister() function should always return an object with a
+          status key and a change key.
+        </p>
+        <p>
+          Return {status: "INSUFFICIENT_FUNDS", change: []} if cash-in-drawer is
+          less than the change due, or if you cannot return the exact change.
+        </p>
+        <p>
+          Return {status: "CLOSED", change: [...]} with cash-in-drawer as the
+          value for the key change if it is equal to the change due.
+        </p>
+        <p>
+          Otherwise, return {status: "OPEN", change: [...]}, with the change due
+          in coins and bills, sorted in highest to lowest order, as the value of
+          the change key.
+        </p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Currency Unit</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Penny</td>
+              <td>$0.01 (PENNY)</td>
+            </tr>
+            <tr>
+              <td>Nickel</td>
+              <td>$0.05 (NICKEL)</td>
+            </tr>
+            <tr>
+              <td>Dime</td>
+              <td>$0.1 (DIME)</td>
+            </tr>
+            <tr>
+              <td>Quarter</td>
+              <td>$0.25 (QUARTER)</td>
+            </tr>
+            <tr>
+              <td>Dollar</td>
+              <td>$1 (DOLLAR)</td>
+            </tr>
+            <tr>
+              <td>Five Dollars</td>
+              <td>$5 (FIVE)</td>
+            </tr>
+            <tr>
+              <td>Ten Dollars</td>
+              <td>$10 (TEN)</td>
+            </tr>
+            <tr>
+              <td>Twenty Dollars</td>
+              <td>$20 (TWENTY)</td>
+            </tr>
+            <tr>
+              <td>One-hundred Dollars</td>
+              <td>$100 (ONE HUNDRED)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>See below for an example of a cash-in-drawer array:</p>
+        <pre>
                     <code>
     [
         ["PENNY", 1.01],
@@ -121,62 +119,67 @@
     ]
                     </code>
                 </pre>
-                <ul>
-                    <li class="mb-2">
-                        checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL",
-                        2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90],
-                        ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE
-                        HUNDRED", 100]]);<span class="text-primary">
-                            should return an object</span
-                        >.
-                    </li>
-                    <li class="mb-2">
-                        checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL",
-                        2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90],
-                        ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE
-                        HUNDRED", 100]]);<span class="text-primary">
-                            should return</span
-                        >
-                        {status: "OPEN", change: [["QUARTER", 0.5]]}.
-                    </li>
-                    <li class="mb-2">
-                        checkCashRegister(3.26, 100, [["PENNY", 1.01],
-                        ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25],
-                        ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60],
-                        ["ONE HUNDRED", 100]]);<span class="text-primary">
-                            should return</span
-                        >
-                        {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20],
-                        ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME",
-                        0.2], ["PENNY", 0.04]]}.
-                    </li>
-                    <li class="mb-2">
-                        checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL",
-                        0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE",
-                        0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED",
-                        0]]);<span class="text-primary"> should return</span>
-                        {status: "INSUFFICIENT_FUNDS", change: [ ]}.
-                    </li>
-                    <li class="mb-2">
-                        checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL",
-                        0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE",
-                        0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED",
-                        0]]);<span class="text-primary"> should return</span>
-                        {status: "INSUFFICIENT_FUNDS", change: [ ]}.
-                    </li>
-                    <li class="mb-2">
-                        checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL",
-                        0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE",
-                        0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED",
-                        0]]);<span class="text-primary"> should return</span>
-                        {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL",
-                        0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE",
-                        0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}.
-                    </li>
-                </ul>
+        <ul>
+          <li class="mb-2">
+            checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05],
+            ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN",
+            20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);<span
+              class="text-primary"
+            >
+              should return an object</span
+            >.
+          </li>
+          <li class="mb-2">
+            checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05],
+            ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN",
+            20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);<span
+              class="text-primary"
+            >
+              should return</span
+            >
+            {status: "OPEN", change: [["QUARTER", 0.5]]}.
+          </li>
+          <li class="mb-2">
+            checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05],
+            ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN",
+            20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);<span
+              class="text-primary"
+            >
+              should return</span
+            >
+            {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15],
+            ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}.
+          </li>
+          <li class="mb-2">
+            checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0],
+            ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0],
+            ["TWENTY", 0], ["ONE HUNDRED", 0]]);<span class="text-primary">
+              should return</span
+            >
+            {status: "INSUFFICIENT_FUNDS", change: [ ]}.
+          </li>
+          <li class="mb-2">
+            checkCashRegister(19.5, 20, [["PENNY", 0.01], ["NICKEL", 0],
+            ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0],
+            ["TWENTY", 0], ["ONE HUNDRED", 0]]);<span class="text-primary">
+              should return</span
+            >
+            {status: "INSUFFICIENT_FUNDS", change: [ ]}.
+          </li>
+          <li class="mb-2">
+            checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME",
+            0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY",
+            0], ["ONE HUNDRED", 0]]);<span class="text-primary">
+              should return</span
+            >
+            {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME",
+            0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY",
+            0], ["ONE HUNDRED", 0]]}.
+          </li>
+        </ul>
 
-                <h5 class="mt-5">Solution 1</h5>
-                <pre>
+        <h5 class="mt-5">Solution 1</h5>
+        <pre>
                     <code class="language-javascript">
     const moneyDict = {
         'PENNY': 1,
@@ -243,8 +246,8 @@
     }
                     </code>
                 </pre>
-                <h5>Solution 2</h5>
-                <pre>
+        <h5>Solution 2</h5>
+        <pre>
                     <code class="language-javascript">
     const denominations = ['ONE HUNDRED', 'TWENTY', 'TEN', 'FIVE', 'ONE', 'QUARTER', 'DIME', 'NICKEL', 'PENNY'];
     const moneyDict = {
@@ -306,47 +309,46 @@
     }
                     </code>
                 </pre>
-            </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="text-center p-2">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p>Copyright &copy; <span id="year"></span> Donald Brown</p>
+          </div>
         </div>
-        <hr />
+      </div>
+    </footer>
 
-        <!-- FOOTER -->
-        <footer id="main-footer" class="text-center p-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <p>
-                            Copyright &copy; <span id="year"></span> Donald
-                            Brown
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
 
-        <script
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-            crossorigin="anonymous"
-        ></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-        <script>
-            hljs.initHighlightingOnLoad();
-        </script>
-
-        <script>
-            // Get the current year for the copyright
-            $("#year").text(new Date().getFullYear());
-        </script>
-    </body>
+    <script>
+      // Get the current year for the copyright
+      $(document).ready(function () {
+        $("#year").text(new Date().getFullYear());
+      });
+    </script>
+  </body>
 </html>

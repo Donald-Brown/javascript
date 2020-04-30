@@ -1,44 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css" />
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-            crossorigin="anonymous"
-        />
-        
-        <title>Seek and Destroy</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="col-md-9 mx-auto">
-                <h2 class="mt-3">
-                    Intermediate Algorithm Scripting:
-                    <span class="text-success"> Seek and Destroy</span>
-                </h2>
-                <p>
-                    You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
-                </p>
-                <p>
-                    <strong>Note</strong> <br />
-                    You have to use the arguments object.
-                </p>
-                <ul>
-                    <li class="mb-2">destroyer([1, 2, 3, 1, 2, 3], 2, 3);<span class="text-info"> should return</span> [1, 1].</li>
-                    <li class="mb-2">destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3);<span class="text-info"> should return</span> [1, 5, 1].</li>
-                    <li class="mb-2">destroyer([3, 5, 1, 2, 2], 2, 3, 5);<span class="text-info"> should return</span> [1].</li>
-                    <li class="mb-2">destroyer([2, 3, 2, 3], 2, 3);<span class="text-info"> should return</span> [].</li>
-                    <li class="mb-2">destroyer(["tree", "hamburger", 53], "tree", 53);<span class="text-info"> should return</span> ["hamburger"].</li>
-                    <li class="mb-2">destroyer(["possum", "trollo", 12, "safari", "hotdog", 92, 65, "grandma", "bugati", "trojan", "yacht"], "yacht", "possum", "trollo", "safari", "hotdog", "grandma", "bugati", "trojan");<span class="text-info"> should return</span> [12,92,65].</li>
-                </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
-                <h5>Solution 1</h5>
-                
-                <pre>
+    <title>Seek and Destroy</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-9 mx-auto">
+        <h2 class="mt-3">
+          Intermediate Algorithm Scripting:
+          <span class="text-success"> Seek and Destroy</span>
+        </h2>
+        <p>
+          You will be provided with an initial array (the first argument in the
+          destroyer function), followed by one or more arguments. Remove all
+          elements from the initial array that are of the same value as these
+          arguments.
+        </p>
+        <p>
+          <strong>Note</strong> <br />
+          You have to use the arguments object.
+        </p>
+        <ul>
+          <li class="mb-2">
+            destroyer([1, 2, 3, 1, 2, 3], 2, 3);<span class="text-info">
+              should return</span
+            >
+            [1, 1].
+          </li>
+          <li class="mb-2">
+            destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3);<span class="text-info">
+              should return</span
+            >
+            [1, 5, 1].
+          </li>
+          <li class="mb-2">
+            destroyer([3, 5, 1, 2, 2], 2, 3, 5);<span class="text-info">
+              should return</span
+            >
+            [1].
+          </li>
+          <li class="mb-2">
+            destroyer([2, 3, 2, 3], 2, 3);<span class="text-info">
+              should return</span
+            >
+            [].
+          </li>
+          <li class="mb-2">
+            destroyer(["tree", "hamburger", 53], "tree", 53);<span
+              class="text-info"
+            >
+              should return</span
+            >
+            ["hamburger"].
+          </li>
+          <li class="mb-2">
+            destroyer(["possum", "trollo", 12, "safari", "hotdog", 92, 65,
+            "grandma", "bugati", "trojan", "yacht"], "yacht", "possum",
+            "trollo", "safari", "hotdog", "grandma", "bugati", "trojan");<span
+              class="text-info"
+            >
+              should return</span
+            >
+            [12,92,65].
+          </li>
+        </ul>
+
+        <h5>Solution 1</h5>
+
+        <pre>
                     <code class="language-javascript">
     function destroyer(arr) {
         const argsArr = [...arguments].slice(1);
@@ -47,38 +89,46 @@
     }
                     </code>
                 </pre>
-            </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="text-center p-2">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p>Copyright &copy; <span id="year"></span> Donald Brown</p>
+          </div>
         </div>
-        <hr />
+      </div>
+    </footer>
 
-        <!-- FOOTER -->
-        <footer id="main-footer" class="text-center p-2">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <p>
-                            Copyright &copy; <span id="year"></span> Donald
-                            Brown
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
-        <script>
-            hljs.initHighlightingOnLoad();
-        </script>
-
-        <script>
-            // Get the current year for the copyright
-            $("#year").text(new Date().getFullYear());
-        </script>
-    </body>
+    <script>
+      // Get the current year for the copyright
+      $(document).ready(function () {
+        $("#year").text(new Date().getFullYear());
+      });
+    </script>
+  </body>
 </html>
