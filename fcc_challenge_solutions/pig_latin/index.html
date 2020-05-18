@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+    <title>Pig Latin</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-9 mx-auto">
+        <h2 class="my-4">
+          Intermediate Algorithm Scripting:
+          <span class="text-success"> Pig Latin</span>
+        </h2>
+        <p>
+          Pig Latin is a way of altering English Words. The rules are as
+          follows:
+        </p>
+        <p>
+          - If a word begins with a consonant, take the first consonant or
+          consonant cluster, move it to the end of the word, and add "ay" to it.
+        </p>
+        <p>
+          - If a word begins with a vowel, just add "way" at the end.
+        </p>
+        <p>
+          Translate the provided string to Pig Latin. Input strings are
+          guaranteed to be English words in all lowercase.
+        </p>
+        <ul>
+          <li class="mb-2">
+            translatePigLatin("california")<span class="text-info">
+              should return</span
+            >
+            "aliforniacay".
+          </li>
+          <li class="mb-2">
+            translatePigLatin("paragraphs")<span class="text-info">
+              should return</span
+            >
+            "aragraphspay".
+          </li>
+          <li class="mb-2">
+            translatePigLatin("glove")<span class="text-info">
+              should return</span
+            >
+            "oveglay".
+          </li>
+          <li class="mb-2">
+            translatePigLatin("algorithm")<span class="text-info">
+              should return</span
+            >
+            "algorithmway".
+          </li>
+          <li class="mb-2">
+            translatePigLatin("eight")<span class="text-info">
+              should return</span
+            >
+            "eightway".
+          </li>
+          <li class="mb-2">
+            Should handle words where the first vowel comes in the middle of the
+            word. translatePigLatin("schwartz")<span class="text-info">
+              should return</span
+            >
+            "artzschway".
+          </li>
+          <li class="mb-2">
+            Should handle words without vowels. translatePigLatin("rhythm")<span
+              class="text-info"
+            >
+              should return</span
+            >
+            "rhythmay".
+          </li>
+        </ul>
+
+        <h5>Solution 1</h5>
+        <pre>
+          <code class="language-javascript">
+    function translatePigLatin(str) {
+      const VOWELS = ['a', 'e', 'i', 'o', 'u'];
+    
+      const firstChar = str[0];
+      if(VOWELS.includes(firstChar)){
+        return str + 'way';
+      }
+      
+      let noVowels = true;
+      for(const c of str){
+        if(VOWELS.includes(c)){
+          noVowels = false;
+          break;
+        }
+      }
+      if(noVowels){
+        return str + 'ay';
+      }
+    
+      let consonants = '';
+      let firstVowelIndex = 0;
+      for(let i=0; i<\str.length; i++){
+        const c = str[i];
+        if(VOWELS.includes(c)){
+          firstVowelIndex = i;
+          break;
+        }
+        consonants += c;
+      }
+      return str.substring(firstVowelIndex) + consonants + 'ay';
+    }
+          </code>
+        </pre>
+        <h5>Solution 2</h5>
+        <pre>
+          <code class="language-javascript">
+  function translatePigLatin(str) {
+    const VOWELS = ['a', 'e', 'i', 'o', 'u'];
+  
+    const firstChar = str[0];
+    if(VOWELS.includes(firstChar)){
+      return str + 'way';
+    }
+  
+    if(str.split('').every(c => !VOWELS.includes(c))){
+      return str +'ay';
+    }
+  
+    const consonants = str.split(/[aeiou]/)[0];
+    return str.substring(consonants.length) + consonants + 'ay';
+  }
+          </code>
+        </pre>
+      </div>
+    </div>
+    <hr />
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="text-center p-2">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p>Copyright &copy; <span id="year"></span> Donald Brown</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>
+      // Init Highlight js
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+      // Get the current year for the copyright
+      $(document).ready(function () {
+        $("#year").text(new Date().getFullYear());
+      });
+    </script>
+  </body>
+</html>

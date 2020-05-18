@@ -38,9 +38,9 @@ var bob = new Person('Bob Ross');
 
 console.log(bob.getFirstName());
 console.log(bob.getLastName());
-console.log(bob.fullName);
+console.log(bob.getFullName());
 bob.setFirstName('John');
 bob.setLastName('Flake');
 console.log(bob.getFullName());
 bob.setFullName('John Gosh');
-console.log(bob.fullName);
+console.log(bob.getFullName());
