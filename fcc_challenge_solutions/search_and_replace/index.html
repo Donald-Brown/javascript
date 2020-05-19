@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+    <title>Search And Replace</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-9 mx-auto">
+        <h2 class="my-4">
+          Intermediate Algorithm Scripting:
+          <span class="text-success"> Search and Replace</span>
+        </h2>
+        <p>
+          Perform a search and replace on the sentence using the arguments
+          provided and return the new sentence. First argument is the sentence
+          to perform the search and replace on. Second argument is the word that
+          you will be replacing (before). Third argument is what you will be
+          replacing the second argument with (after). Note Preserve the case of
+          the first character in the original word when you are replacing it.
+          For example if you mean to replace the word "Book" with the word
+          "dog", it should be replaced as "Dog"
+        </p>
+
+        <ul>
+          <li class="mb-2">
+            myReplace("Let us go to the store", "store", "mall")<span
+              class="text-info"
+            >
+              should return</span
+            >
+            "Let us go to the mall".
+          </li>
+          <li class="mb-2">
+            myReplace("He is Sleeping on the couch", "Sleeping", "sitting")<span
+              class="text-info"
+            >
+              should return</span
+            >
+            "He is Sitting on the couch".
+          </li>
+          <li class="mb-2">
+            myReplace("This has a spellngi error", "spellngi", "spelling")<span
+              class="text-info"
+            >
+              should return</span
+            >
+            "This has a spelling error".
+          </li>
+          <li class="mb-2">
+            myReplace("His name is Tom", "Tom", "john")<span class="text-info">
+              should return</span
+            >
+            "His name is John".
+          </li>
+          <li class="mb-2">
+            myReplace("Let us get back to more Coding", "Coding",
+            "algorithms")<span class="text-info"> should return</span> "Let us
+            get back to more Algorithms".
+          </li>
+        </ul>
+
+        <h5>Solution 1</h5>
+        <pre>
+          <code class="language-javascript">
+  function myReplace(str, before, after) {
+    const isCapital = before[0] >= 'A' && before[0] <= 'Z'; // capital?
+    let afterCase;
+    if(isCapital){
+      afterCase = after[0].toUpperCase() + after.substring(1);
+    }else{
+      afterCase = after[0].toLowerCase() + after.substring(1);
+    }
+  
+    let regex
+    
+    return str.replace(before, afterCase);
+  }
+          </code>
+        </pre>
+        <h5>Solution 2</h5>
+        <pre>
+          <code class="language-javascript">
+  function myReplace(str, before, after) {
+    const isCapital = before[0] >= "A" && before[0] <= "Z"; // capital?
+    let afterCase;
+    if (isCapital) {
+      afterCase = after[0].toUpperCase() + after.substring(1);
+    } else {
+      afterCase = after[0].toLowerCase() + after.substring(1);
+    }
+  
+    let replaceStr = str;
+    for (let i = 0; i < replaceStr.length; i++) {
+      const iString = replaceStr.substring(i, i + before.length);
+      if (iString === before) {
+        replaceStr =
+          replaceStr.substring(0, i) +
+          afterCase +
+          replaceStr.substring(i + before.length);
+        i += after.length - 1;
+      }
+    }
+    return replaceStr;
+  }
+          </code>
+        </pre>
+        <h5>Solution 3</h5>
+        <pre>
+          <code class="language-javascript">
+  // This with the first function only replace the first occurance
+  function myReplace(str, before, after) {
+    const afterCase = ( /[A-Z]/.test(before[0])
+      ? after[0].toUpperCase() 
+      : after[0].toLowerCase()
+      ) + after.substring(1);
+  
+    return str.replace(before, afterCase);
+  }
+          </code>
+        </pre>
+      </div>
+    </div>
+    <hr />
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="text-center p-2">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p>Copyright &copy; <span id="year"></span> Donald Brown</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>
+      // Init Highlight js
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+      // Get the current year for the copyright
+      $(document).ready(function () {
+        $("#year").text(new Date().getFullYear());
+      });
+    </script>
+  </body>
+</html>
